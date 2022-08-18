@@ -1,0 +1,26 @@
+---
+import '../styles/fonts.css';
+---
+<div class="fullmenu">
+    <div class="center">
+        <img src="" class="logo" />
+        <h1>The Enterprise Lab</h1>
+    </div>
+    <div class="item-holder">
+        <slot />
+    </div>
+</div>
+
+<style>
+
+.fullmenu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 10vh;
+}
+h1 {
+    font-family: plexsans;
+}
+
+</style>
