@@ -1,0 +1,34 @@
+---
+const { name } = Astro.props;
+import '../styles/fonts.css';
+---
+<div class="menuitem">
+    <p class="name">{name}</p>
+    <div class="hidden">
+        <slot />
+    </div>
+</div>
+
+<style>
+    .menuitem {
+        border-left: 0.3vw solid #2ED124;
+        height: 70%;
+        width: 10vw;
+        margin-top: auto;
+        margin-bottom: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .name {
+        font-size: 1.5em;
+        font-family: plexsans;
+        color: #2ED124;
+    }
+    .hidden {
+        display: block;
+        z-index: 1;
+        position: absolute;
+        width: 100%;
+    }
+</style>
