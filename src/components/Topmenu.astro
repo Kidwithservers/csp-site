@@ -1,46 +1,80 @@
 ---
 import '../styles/fonts.css';
 ---
-<div class="fullmenu">
-    <div class="center">
-        <img src="" class="logo" />
-        <h1>The Enterprise Lab</h1>
-    </div>
-    <div class="item-holder">
-        <slot />
-    </div>
-</div>
+    <ul class="fullmenu">
+        <!--<li class="menuitem">
+            <img src="" class="logo" />
+        </li>-->
+        <li class="title">
+            <h1>The Enterprise Lab</h1>
+        </li>
+        <li class="menuitem dropdown">Mainframe
+            <ul class="submenu">
+                <li>IOCDS</li>
+                <li>Physical Configuration</li>
+            </ul>
+        </li>
+        <li class="menuitem">Blog</li>
+        <li class="menuitem">About</li>
+    </ul>
 
-<style>
+<style is:global>
 
 .fullmenu {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
     height: 10vh;
     width: 100vw;
-    border-bottom: 1vh solid #2ED124;
+    border-bottom: .5vh solid #00ffff;
 }
-h1 {
-    font-family: plexsans;
-    margin-top: auto;
-    margin-bottom: auto;
-    color: #2ED124;
+h1  {
+    font-family: ibm-term;
+    color: #00ffff;
     padding-left: 1vw;
 }
-.center {
-    width: 30%;
-    height: 100%;
-    display: flex;    
+.title {
+    margin-right: auto;
 }
-.logo {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-.item-holder {
-    width: 70vw;
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    align-items: center;
 }
+.dropdown ul {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 17vw;
+    background-color: black;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    border: 0.1em solid #00ffff;
+    padding-top: 0.5vh;
+}
+.dropdown li{
+    height: 2vw;
+    text-align: left;
+    width: 100%;
+    color: #00ffff;
+    margin-left: 0.25vw;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.menuitem {
+ margin-right: 2vw;
+ font-family: plexsans;
+ font-size: 1.35em;
+ color: #00ffff;
+}
+
+.dropdown:hover .submenu, .submenu:hover {
+    display: block;
+}
+
 </style>

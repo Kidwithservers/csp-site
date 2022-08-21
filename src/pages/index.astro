@@ -1,6 +1,6 @@
 ---
 import Topmenu from '../components/Topmenu.astro';
-import TopmenuItem from '../components/TopmenuItem.astro';
+import '../styles/fonts.css';
 ---
 
 <html>
@@ -8,12 +8,46 @@ import TopmenuItem from '../components/TopmenuItem.astro';
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<script>
+        var cursor = true;
+        var speed = 500;
+        setInterval(() => {
+          if(cursor) {
+            document.getElementById('cursor').style.opacity = 0;
+            cursor = false;
+          }else {
+            document.getElementById('cursor').style.opacity = 1;
+            cursor = true;
+          }
+        }, speed);
+    </script>
 </head>
-<body style="height: 100vh; width: 100vw; margin: 0; padding: 0;">
-	<Topmenu>
-		<TopmenuItem name="Mainframe">
-			<a href="/test.html" />
-		</TopmenuItem>
-	</Topmenu>
+<body style="height: 100vh; width: 100vw; margin: 0; padding: 0; background-color: black">
+	<Topmenu></Topmenu>
+	<div class="site-intro">
+		<h2>Welcome to the Enterprise Lab<span id="cursor">_</span></h2>
+		<p>This site contins information on all of th</p>
+	</div>
 </body>
 </html>
+
+<style>
+	.site-intro {
+		color: #00ffff;
+		height: 89vh;
+		width: 70vw;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-left: 5vh;
+	}
+	p {
+		font-family: plexsans;
+		font-size: 1.5em;
+	}
+	h2 {
+		margin: 0;
+		font-family: ibm-term;
+		font-size: 3.75em;
+	}
+</style>
