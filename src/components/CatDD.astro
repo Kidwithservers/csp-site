@@ -1,0 +1,64 @@
+---
+const { cat, path, level } = Astro.props;
+const data = await Astro.glob("../pages/mainframe/*.md");
+var posts = null;
+if (level === "1") {
+    posts = data.filter(post => post.frontmatter.l1Cat === cat)
+} else if (level === "2") {
+    posts = data.filter(post => post.frontmatter.l2Cat === cat)
+
+} else if (level === "3"){
+    posts = data.filter(post => post.frontmatter.l3Cat === cat)
+} else {
+    posts = [{frontmatter: {
+            title: "No content"},
+            url: '#'}]
+};
+---
+<script>
+    const targetDiv = document.getElementById("toggle");
+    const btn = document.getElementById("button");
+    btn.onclick = function () {
+    if (targetDiv.style.display !== "none") {
+        targetDiv.style.display = "none";
+    } else {
+        targetDiv.style.display = "block";
+    }
+    };
+</script>
+
+<button id="button">{cat}</button>
+<ul class="toggle-content" id="toggle" style="display: none">
+    {posts.map((post) => (
+      <li> 
+        <a href={post.url}>{post.frontmatter.title}</a>
+      </li>
+    ))}
+</ul>
+
+<style>
+button {
+    border-bottom: 0.09em solid #00ffff;
+    color: #00ffff;
+    height: 5%;
+    font-family: inherit;
+    text-align: left;
+    background: none;
+    font-size: 1.3em;
+    width: 100%;
+    padding-left: 0;
+}
+/*button:hover {
+    border: 0.15vw solid #00ffff;
+}*/
+
+.toggle-content.is-visible {
+	display: block;
+}
+
+li {
+    font-family: inherit;
+    font-size: 1.2em;
+    margin-left: 5%;
+}
+</style>
