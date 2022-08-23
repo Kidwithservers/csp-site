@@ -1,6 +1,6 @@
 ---
 const { cat, path, level } = Astro.props;
-const data = await Astro.glob("../pages/mainframe/*.md");
+const data = await Astro.glob("../pages/**/*.md");
 var posts = null;
 if (level === "1") {
     posts = data.filter(post => post.frontmatter.l1Cat === cat)
@@ -16,19 +16,10 @@ if (level === "1") {
 };
 ---
 <script>
-    const targetDiv = document.getElementById("toggle");
-    const btn = document.getElementById("button");
-    btn.onclick = function () {
-    if (targetDiv.style.display !== "none") {
-        targetDiv.style.display = "none";
-    } else {
-        targetDiv.style.display = "block";
-    }
-    };
 </script>
 
 <button id="button">{cat}</button>
-<ul class="toggle-content" id="toggle" style="display: none">
+<ul class="toggle-content" id="toggle">
     {posts.map((post) => (
       <li> 
         <a href={post.url}>{post.frontmatter.title}</a>
@@ -38,13 +29,13 @@ if (level === "1") {
 
 <style>
 button {
-    border-bottom: 0.09em solid #00ffff;
+    border-bottom: 0.25vh solid #00ffff;
     color: #00ffff;
-    height: 5%;
+    height: 4vh;
     font-family: inherit;
     text-align: left;
     background: none;
-    font-size: 1.3em;
+    font-size: 1.2em;
     width: 100%;
     padding-left: 0;
 }
@@ -52,13 +43,13 @@ button {
     border: 0.15vw solid #00ffff;
 }*/
 
-.toggle-content.is-visible {
-	display: block;
-}
-
 li {
     font-family: inherit;
-    font-size: 1.2em;
-    margin-left: 5%;
+    font-size: 1.15em;
+    margin-left: 10%;
+}
+
+a {
+    text-decoration: underline;
 }
 </style>
