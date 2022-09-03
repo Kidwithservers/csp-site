@@ -6,7 +6,7 @@ import '../styles/fonts.css';
             <img src="" class="logo" />
         </li>-->
         <li class="title">
-            <a href="/"><h1>The Enterprise Lab_</h1></a>
+            <a href="/" class="menubar-head">AP Computer Science Principles</a>
         </li>
         <!--<li class="menuitem dropdown">Mainframe
             <ul class="submenu">
@@ -14,8 +14,12 @@ import '../styles/fonts.css';
                 <li><a href="/mainframe/test">Test</a></li>
             </ul>
         </li>-->
-        <!--<li class="menuitem">Blog</li>-->
-        <li class="menuitem"><a href="/about">About</a></li>
+        <li class="menuitem"><a href="/coursework/course-home">Coursework</a></li>
+        <li class="menuitem"><a href="/calander">Upcoming events</a></li>
+        <!--<li class="menuitem"><a href="/status">Systems status</a></li>-->
+        <li class="menuitem">Server Connection Info</li>
+        <li class="menuitem"><a href="https://lms.apcsp.io">Canvas</a></li>
+        <!--<li class="menuitem"><a href="/about">About</a></li>-->
     </ul>
 
 <style is:global>
@@ -26,11 +30,14 @@ import '../styles/fonts.css';
     justify-content: flex-end;
     height: 10vh;
     width: 100vw;
-    border-bottom: .5vh solid #00ffff;
+    background-color: white;
+    color: #25b13a;
+    border-bottom: .5vh solid #06b820;
 }
-h1  {
-    font-family: ibm-term;
-    color: #00ffff;
+.menubar-head  {
+    font-family: ocra;
+    font-size: 1.5em;
+    font-weight: normal;
     padding-left: 1vw;
 }
 .title {
@@ -52,14 +59,14 @@ ul {
     display: none;
     position: absolute;
     z-index: 1;
-    border: 0.1em solid #00ffff;
+    border: 0.1em solid #25b13a;
     padding-top: 0.5vh;
 }
 .dropdown li{
     height: 2vw;
     text-align: left;
     width: 100%;
-    color: #00ffff;
+    color: #25b13a;
     margin-left: 0.25vw;
 }
 .dropdown {
@@ -70,13 +77,12 @@ ul {
  margin-right: 2vw;
  font-family: plexsans;
  font-size: 1.35em;
- color: #00ffff;
 }
 
 .dropdown:hover .submenu, .submenu:hover {
     display: block;
 }
-a {
+.fullmenu a {
     text-decoration: none;
     color: inherit;
 }

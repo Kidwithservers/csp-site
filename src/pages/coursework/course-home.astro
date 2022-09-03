@@ -1,0 +1,34 @@
+---
+import Topmenu from '../../components/Topmenu.astro';
+import '../../styles/fonts.css';
+import HighCatDD from '../../components/HighCatDD.astro';
+---
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+<body style="height: 100vh; width: 100vw; margin: 0; padding: 0; background-color: white">
+	<Topmenu></Topmenu>
+    <div class="container">
+        <div class="content-menu">
+            <HighCatDD level="2" cat="Unit 0 - The basics of computer programming"></HighCatDD>
+        </div>
+    </div>
+</body>
+<style>
+    .content-menu {
+        width: 20vw;
+        height: 100%;
+        color: white;
+        /*border-right: #06b820 0.5vh solid;*/
+        background-color: #039b29;
+    }
+    .container {
+        height: 89vh;
+        width: 100vw;
+        font-family: plexsans;
+    }
+</style>
+</html>

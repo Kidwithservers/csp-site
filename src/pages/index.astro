@@ -9,75 +9,42 @@ import HighCatDD from '../components/HighCatDD.astro';
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<script>
-        var cursor = true;
-        var speed = 500;
-        setInterval(() => {
-          if(cursor) {
-            document.getElementById('cursor').style.opacity = "0";
-            cursor = false;
-          }else {
-            document.getElementById('cursor').style.opacity = "1";
-            cursor = true;
-          }
-        }, speed);
-    </script>
 </head>
-<body style="height: 100vh; width: 100vw; margin: 0; padding: 0; background-color: black">
+<body style="height: 100vh; width: 100vw; margin: 0; padding: 0; background-color: white">
 	<Topmenu></Topmenu>
 	<div class="homepage-wrapper">
-		<div class="site-intro">
-			<h2>Welcome to the Enterprise Lab<span id="cursor">_</span></h2>
-			<p>This site contins information about a wide range of projects, ranging from telephony to enterprise storage.
-				This site also contains documentation about a varaity of mainframe topics, including information on mainframe
-				hardware and software. All articles in the main menu are finished and complete guides on a topic, 
-				while blog entries are shorter articles or updates on projects in progress. <br> <br>
-				Please bear with me while I load some inital content into the site. I put this site together two days before I left
-				for SHARE, and I am still working on collating the inital conent.
+			<h1>Welcome to AP Computer Science Principles!</h1>
+			<p>
+				Welcome to the class! This website will serve as a central repository for all course information and content. Here, you will be able to find upcoming events, tests, quizes, and due dates. This will also be where all notes, powerpoints, videos, and supplemental material will be stored. On this front page, important announcements will be posted.
 			</p>
-		</div>
-		<div class="menu">
-			<!--<HighCatDD level="1" cat="mainframe" />-->
-		</div>
 	</div>
 </body>
 </html>
 
 <style>
 	.homepage-wrapper {
-		color: #00ffff;
+		color: #06b820;
 		height: 89vh;
 		width: 100vw;
 		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-	}
-	.site-intro {
-		color: #00ffff;
-		height: 100%;
-		width: 75vw;
-		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		padding-left: 5vh;
-		padding-right: 20vw;
+		align-items: center;
 	}
-	.site-intro p {
-		font-family: plexsans;
-		font-size: 1.3em;
-		padding-right: 5vw;
-	}
-	h2 {
+	h1 {
 		margin: 0;
-		font-family: ibm-term;
-		font-size: 3.75em;
+		font-family: ocra;
+		font-size: 3em;
+		font-weight: lighter;
+		text-align: center;
+		width: 85vw;
+		margin-bottom: 3vh;
 	}
-	.menu {
-		width: 25vw;
-		height: 100%;
+	p {
+		text-align: justify;
 		font-family: plexsans;
-		display: flex;
-		justify-content: center;
-		flex-direction: column;
+		font-size: 1.75em;
+		margin: 0 auto;
+		width: 60vw;
 	}
 </style>

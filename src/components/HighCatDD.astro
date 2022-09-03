@@ -3,7 +3,7 @@ import '../styles/fonts.css';
 import CatDD from '../components/CatDD.astro';
 
 const { cat, path, level } = Astro.props;
-const data = await Astro.glob("../pages/**/*.md");
+const data = await Astro.glob("../pages/**/**/*.md");
 var posts = null;
 var items = [];
 var working_lvl = parseInt(level) + 1
@@ -41,22 +41,24 @@ items.map((item) => <CatDD level="3" cat={item} class="submenu"></CatDD>)
 </ul>
 <style>
     button {
-        border-bottom: 0.25vh solid #00ffff;
-        color: #00ffff;
+        /*border-bottom: 0.25vh solid white !important;*/
+        border: none;
+        color: inherit;
         height: 4vh;
         font-family: inherit;
         text-align: left;
         background: none;
-        font-size: 1.3em;
+        font-size: 1em;
         width: 100%;
         padding-left: 0;
     }
     /*button:hover {
         border: 0.15vw solid #00ffff;
-    }*/
-    
+    }*/   
     ul {
         font-family: inherit;
-        margin-left: 10%;
+        background-color: #056e1f;
+        /*color: #06b820;*/
+        /*margin-left: 10%;*/
     }
 </style>
