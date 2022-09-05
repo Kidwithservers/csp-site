@@ -17,6 +17,9 @@ if (working_lvl === 2) {
     });
 } else if (working_lvl === 4) {
     posts = data.filter(post => post.frontmatter.l3Cat === cat);
+    posts.forEach(function (post){
+    items.push(post.frontmatter.title)
+    });
 } else {
     posts = [{frontmatter: {
             title: "No content"},
@@ -49,9 +52,8 @@ for (i = 0; i < dropdown.length; i++) {
 items.map((item) => <Astro.self key={item} cat={item} level={working_lvl} class="submenu"></Astro.self> )
 :
 posts.map((post) => <>
-    {posts.map((post) => (
         <a href={post.url}>{post.frontmatter.title}</a>
-    ))}</>)
+    </>)
 }
 </ul>
 <style>
@@ -78,12 +80,17 @@ posts.map((post) => <>
         height: 2.5vh;
     }
     ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+
         font-family: inherit;
         background-color: #056e1f;
         padding-bottom: 0.35vh;
         width: 100%;
-        /*color: #06b820;*/
-        /*margin-left: 10%;*/
+        align-items: flex-start;
     }
     li {
         font-family: inherit;
@@ -97,6 +104,7 @@ posts.map((post) => <>
         color: white;
         margin-top: 0.25vh;
         margin-bottom: 0.25vh;
+        margin-left: 10%;
     }
     .down-arrow{
         position: relative;
@@ -111,6 +119,7 @@ posts.map((post) => <>
         display: flex;
     }
     .active img {
-        transform: rotate(-90deg);
+        transform: rotate(-90deg) translateX(-2.5vh);
+        transform-origin: top left;
     }
 </style>

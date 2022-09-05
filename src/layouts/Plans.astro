@@ -1,0 +1,86 @@
+---
+import Topmenu from '../components/Topmenu.astro';
+import '../styles/fonts.css';
+import HighCatDD from '../components/CatDD.astro';
+---
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+</head>
+<body style="height: 100vh; width: 100vw; margin: 0; padding: 0; background-color: white">
+	<Topmenu></Topmenu>
+    <div class="container">
+        <div class="content-menu">
+            <HighCatDD level="2" cat="Plans - Unit 0"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 1"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 2"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 3"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 4"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 5"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 6"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 7"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 8"></HighCatDD>
+            <HighCatDD level="2" cat="Plans - Unit 9"></HighCatDD>
+        </div>
+		<div class="main-content">
+            <slot />
+        </div>
+    </div>
+</body>
+<style is:global>
+    .content-menu {
+        width: 20vw;
+        height: 1000%;
+        color: white;
+        /*border-right: #06b820 0.5vh solid;*/
+        background-color: #039b29;
+        font-family: plexsans;
+        height: 100%;
+    }
+    .container {
+        height: 89.5vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .main-content{
+        width: 80vw;
+        height: 100%;
+        padding-left: 2vw;
+        overflow: auto;
+    }
+    .main-content p{
+        font-family: plexsans;
+        font-size: 1.2em;
+        margin-right: 10vw;
+    }
+    .main-content h1{
+        font-family: ocra;
+        color: #06b820;
+        font-weight: normal;
+        font-size: 1.8em;
+        margin-right: 10vw;
+    }
+    .main-content h2{
+        font-family: plexsans;
+        font-size: 1.3em;
+        color: #06b820;
+    }
+    .main-content h3{
+        font-family: plexsans;
+        font-size: 1.35em;
+        font-weight: normal;
+        color: #06b820;
+    }
+    .main-content ul {
+        font-family: plexsans;
+        font-size: 1.2em;
+        list-style-type: square;
+        display: block;
+        list-style-position: inside;
+    }
+</style>
+</html>

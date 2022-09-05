@@ -1,34 +1,9 @@
 ---
-import Topmenu from '../../components/Topmenu.astro';
-import '../../styles/fonts.css';
-import HighCatDD from '../../components/CatDD.astro';
+import Coursework from "../../layouts/Coursework.astro"
 ---
-<html>
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-</head>
-<body style="height: 100vh; width: 100vw; margin: 0; padding: 0; background-color: white">
-	<Topmenu></Topmenu>
-    <div class="container">
-        <div class="content-menu">
-            <HighCatDD level="2" cat="Unit 0"></HighCatDD>
-        </div>
-    </div>
-</body>
-<style>
-    .content-menu {
-        width: 20vw;
-        height: 100%;
-        color: white;
-        /*border-right: #06b820 0.5vh solid;*/
-        background-color: #039b29;
-    }
-    .container {
-        height: 89.5vh;
-        width: 100vw;
-        font-family: plexsans;
-    }
-</style>
-</html>
+<Coursework>
+    <h1>AP Computer Science Principals Coursework Archive</h1>
+    <p>
+        This page contains an index of all coursework and information for this class. All information is assinged a 3 digit alpha-numeric code for ease of lookup. The fist digit indicates the unit numer, the second digit indicates the section number, and the final digit indicates the lesson or assignment number. Codes corrisponding to lesson information end in a number, and codes corrisponding to assignment or assessment information ends in a letter. This scheme is consistant across all mediums associated with this course, as to minimise confusion related to naming. To find needed content, use the menu to the side of this text. It has been orginised in the same matter as these sequence numbers.
+    </p>
+</Coursework>
