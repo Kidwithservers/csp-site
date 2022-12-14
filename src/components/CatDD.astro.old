@@ -1,0 +1,125 @@
+---
+import '../styles/fonts.css';
+const { cat, path, level } = Astro.props;
+const data = await Astro.glob("../pages/**/**/*.md");
+var posts = null;
+var items = [];
+var working_lvl = parseInt(level) + 1
+if (working_lvl === 2) {
+     posts = data.filter(post => post.frontmatter.l1Cat === cat);
+     posts.forEach(function (post){
+    items.push(post.frontmatter.l2Cat)
+    });
+} else if (working_lvl === 3) {
+    posts = data.filter(post => post.frontmatter.l2Cat === cat);
+    posts.forEach(function (post){
+    items.push(post.frontmatter.l3Cat)
+    });
+} else if (working_lvl === 4) {
+    posts = data.filter(post => post.frontmatter.l3Cat === cat);
+    posts.forEach(function (post){
+    items.push(post.frontmatter.title)
+    });
+} else {
+    posts = [{frontmatter: {
+            title: "No content"},
+            url: '#'}]
+};
+items = [...new Set(items)];
+var recursive = true;
+var linklvl = false;
+if (level > 2){
+    recursive = false;
+}
+---
+
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var dropdownContent = this.nextElementSibling;
+    dropdownContent.classList.toggle("visiable");
+  });
+}
+</script>
+
+<button class="dropdown-btn">{cat} <img class="down-arrow" src="/util_img/down-arrow.svg" /></button>
+<ul class="toggle-content">
+{recursive ?
+items.map((item) => <Astro.self key={item} cat={item} level={working_lvl} class="submenu"></Astro.self> )
+:
+posts.map((post) => <>
+        <a href={post.url}>{post.frontmatter.title}</a>
+    </>)
+}
+</ul>
+<style>
+    button {
+        /*border-bottom: 0.25vh solid white !important;*/
+        border: none;
+        color: inherit;
+        height: 4vh;
+        font-family: inherit;
+        text-align: left;
+        background: none;
+        font-size: 1.4em;
+        width: 100%;
+        padding-left: 2%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    } 
+    .toggle-content button {
+        font-size: 1.2em;
+        padding-left: 5%;
+    }
+    .toggle-content img {
+        height: 2.5vh;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+
+        font-family: inherit;
+        background-color: #056e1f;
+        padding-bottom: 0.35vh;
+        width: 100%;
+        align-items: flex-start;
+    }
+    li {
+        font-family: inherit;
+        font-size: 1em;
+        padding-left: 10%;
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+    }
+    a {
+        text-decoration: underline;
+        color: white;
+        margin-top: 0.25vh;
+        margin-bottom: 0.25vh;
+        margin-left: 10%;
+    }
+    .down-arrow{
+        position: relative;
+        margin-left: auto;
+        filter: brightness(0) invert(1);
+        height: 3vh;
+    }
+    .toggle-content {
+        display: none;
+    }
+    .visiable {
+        display: flex;
+    }
+    .active img {
+        transform: rotate(-90deg) translateX(-2.5vh);
+        transform-origin: top left;
+    }
+</style>

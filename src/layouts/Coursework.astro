@@ -14,6 +14,8 @@ import HighCatDD from '../components/CatDD.astro';
     <div class="container">
         <div class="content-menu">
             <HighCatDD level="2" cat="Unit 0"></HighCatDD>
+	    <HighCatDD level="2" cat="Unit 1"></HighCatDD>
+        <HighCatDD level="2" cat="Unit 2"></HighCatDD>
         </div>
 		<div class="main-content">
             <slot />
@@ -23,7 +25,7 @@ import HighCatDD from '../components/CatDD.astro';
 <style is:global>
 
 .content-menu {
-        width: 20vw;
+        width: 25vw;
         height: 1000%;
         color: white;
         /*border-right: #06b820 0.5vh solid;*/
@@ -39,7 +41,7 @@ import HighCatDD from '../components/CatDD.astro';
         align-items: flex-start;
     }
     .main-content{
-        width: 80vw;
+        width: 75vw;
         height: 100%;
         padding-left: 2vw;
         overflow: auto;
@@ -73,6 +75,16 @@ import HighCatDD from '../components/CatDD.astro';
         list-style-type: square;
         display: block;
         list-style-position: inside;
+    }
+    .main-content pre {
+        width: fit-content;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        padding-left: 0.5vw;
+        padding-right: 5vw;
+        border-radius: 1vh;
+	font-size: 1.2em;
+	font-family: plexmono
     }
 </style>
 </html>
